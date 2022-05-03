@@ -7,11 +7,11 @@
  */
 exports.up = async (knex) => {
   return knex.schema.createTable("restaurants", (table) => {
-    table.bigIncrements("id");
-    table.string("name").notNullable();
-    table.string("location").notNullable();
-    table.timestamp("createdAt").notNullable().defaultTo(knex.fn.now());
-    table.timestamp("updatedAt").notNullable().defaultTo(knex.fn.now());
+    table.bigIncrements("id")
+    table.string("name").notNullable()
+    table.string("location").notNullable()
+    table.timestamp("createdAt").notNullable().defaultTo(knex.fn.now())
+    table.timestamp("updatedAt").notNullable().defaultTo(knex.fn.now())
   });
 };
 

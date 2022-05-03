@@ -9,10 +9,10 @@ class RestaurantSeeder {
     ];
 
     for (const restaurantObject of restaurantData) {
-      const currentRestaurant = await Restaurant.query().findOne({ name: restaurantObject.name });
+      const currentRestaurant = await Restaurant.query().findOne({ name: restaurantObject.name })
 
       if (!currentRestaurant) {
-        await Restaurant.query().insert(restaurantObject);
+        await Restaurant.query().insert(restaurantObject)
       }
     }
   }
