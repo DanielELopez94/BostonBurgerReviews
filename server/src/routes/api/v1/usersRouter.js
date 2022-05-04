@@ -10,7 +10,6 @@ usersRouter.post("/", async (req, res) => {
 
   try {
     const persistedUser = await User.query().insertAndFetch({ email, password });
-    console.log("Persisted User", persistedUser)
     return req.login(persistedUser, () => {
       return res.status(201).json({ user: persistedUser });
     });
