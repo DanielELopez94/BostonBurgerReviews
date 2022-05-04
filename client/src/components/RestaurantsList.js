@@ -34,7 +34,7 @@ const RestaurantsList = props => {
 
   return (
     <>
-      <h1>Restaurants: </h1>
+      <h1> Restaurants: </h1>
       {restaurantListItems}
     </>
   )

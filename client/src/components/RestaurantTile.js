@@ -1,20 +1,17 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
 
 const RestaurantTile = (props) => {
-  const { id, name, location } = props.restaurant
+  const { id, name, location } = props.restaurant;
   return (
-    <div>
+    <div className="indexPageList">
       <h3>
-        <Link to={`/restaurants/${id}`}>
-          {name}
-        </Link>
-      </h3>
-      <h5>
-        {location}
-      </h5>
-    </div>
-  )
-}
+        <Link id ="restaurantName" to={`/restaurants/${id}`}>{name}</Link>
 
-export default RestaurantTile
+        <h5 className="indexPageList">{location}</h5>
+      </h3>
+    </div>
+  );
+};
+
+export default RestaurantTile;
