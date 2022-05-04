@@ -1,14 +1,13 @@
-import express from "express";
-import getClientIndexPath from "../config/getClientIndexPath.js";
+import express from "express"
+import getClientIndexPath from "../config/getClientIndexPath.js"
 
-const router = new express.Router();
-
-const clientRoutes = ["/", "/user-sessions/new", "/users/new"];
+const router = new express.Router()
+const clientRoutes = ["/", "/user-sessions/new", "/users/new", "/restaurants"];
 
 const authedClientRoutes = ["/profile"];
 
 router.get(clientRoutes, (req, res) => {
-  res.sendFile(getClientIndexPath());
+  res.sendFile(getClientIndexPath())
 });
 
 router.get(authedClientRoutes, (req, res) => {
