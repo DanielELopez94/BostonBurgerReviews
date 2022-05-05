@@ -19,5 +19,5 @@ exports.up = async (knex) => {
  * @param {Knex} knex
  */
 exports.down = (knex) => {
-    return knex.schema.dropTableIfExists('restaurants')
+  return knex.schema.dropTableIfExists("restaurants")
 };
