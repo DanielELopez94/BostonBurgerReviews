@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react"
 
-const BurgerShow = props => {
+const BurgerShowPage = props => {
   const [burger, setBurger] = useState({
     name: "", 
     vegetarian: null
   })
   const getBurger = async () => {
       const burgerId = props.match.params.id
-      const restaurantId = props.restaurant.id
     try {
-      const response = await fetch(`/api/v1/restaurants/${restaurantId}/${burgerId}`)
+      const response = await fetch(`/api/v1/burgers/${burgerId}`)
       if (!response.ok) {
         const errorMessage = `${response.status} (${response.statusText})`
         const error = new Error(errorMessage)
@@ -34,4 +33,4 @@ const BurgerShow = props => {
   )
 }
 
-export default BurgerShow
+export default BurgerShowPage
