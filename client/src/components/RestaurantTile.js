@@ -5,11 +5,11 @@ const RestaurantTile = (props) => {
   const { id, name, location } = props.restaurant;
   return (
     <div className="indexPageList">
-      <h3>
+      <h1>
         <Link id ="restaurantName" to={`/restaurants/${id}`}>{name}</Link>
 
-        <h5 className="indexPageList">{location}</h5>
-      </h3>
+        <div className="indexPageList">{location}</div>
+      </h1>
     </div>
   );
 };

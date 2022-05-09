@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import NewBurgerReviewForm from "./NewBurgerReviewForm"
 
 const BurgerShowPage = props => {
   const [burger, setBurger] = useState({
@@ -29,6 +30,10 @@ const BurgerShowPage = props => {
     <div>
       <h2>{burger.name}</h2>
       <h2>{burger.vegetarian}</h2>
+      <h2> Reviews:</h2>
+      <div>
+      <NewBurgerReviewForm />
+      </div>
     </div>
   )
   
