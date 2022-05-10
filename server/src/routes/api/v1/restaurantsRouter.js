@@ -8,7 +8,7 @@ restaurantsRouter.get("/", async (req, res) => {
   try {
     const restaurants = await Restaurant.query()
     const serializedRestaurants = restaurants.map(restaurant => {
-    return RestaurantSerializer.getSummary(restaurant)
+      return RestaurantSerializer.getSummary(restaurant)
     })
     return res.status(200).json({ restaurants: serializedRestaurants })
   } catch (error) {
@@ -17,7 +17,7 @@ restaurantsRouter.get("/", async (req, res) => {
 })
 
 restaurantsRouter.get("/:id", async (req, res) => {
-  const id = req.params.id
+  const { id } = req.params
   try {
     const restaurant = await Restaurant.query().findById(id)
     const serializedRestaurant = await RestaurantSerializer.getDetail(restaurant)

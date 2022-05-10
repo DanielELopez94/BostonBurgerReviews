@@ -6,22 +6,37 @@ class BurgerSeeder {
       {
         restaurantId: 1,
         name: "WTF Burger",
-        vegetarian: false,
+        vegetarian: false
       },
       {
         restaurantId: 2,
         name: "Shack Stack",
-        vegetarian: false,
+        vegetarian: false
       },
       {
         restaurantId: 3,
         name: "Chris Burger",
-        vegetarian: false,
+        vegetarian: false
       },
       {
         restaurantId: 4,
         name: "Black & Blue Burger",
-        vegetarian: false,
+        vegetarian: false
+      },
+      {
+        restaurantId: 4,
+        name: "Blackjack",
+        vegetarian: false
+      },
+      {
+        restaurantId: 4,
+        name: "The Mother Clucker",
+        vegetarian: false
+      },
+      {
+        restaurantId: 4,
+        name: "Hawaii 8.0 Burger",
+        vegetarian: false
       }
     ]
 

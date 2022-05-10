@@ -30,7 +30,28 @@ class ReviewSeeder {
         title: "Wutta Burger",
         rating: 5,
         comment: "What's juicy, black, and blue all over? This fantastic creation. Eat now."
-      }
+      },
+      {
+        userId: 6,
+        burgerId: 6,
+        title: "Breakfast or Burger",
+        rating: 3,
+        comment: "I thought this was going to be a chicken burger, but mostly eggs and bacon."
+      },
+      {
+        userId: 7,
+        burgerId: 7,
+        title: "Cowabunga! Hang 10 Dudes!",
+        rating: 5,
+        comment: "Like whoa!  Rad burger, bruh!  Like a Hawaiian Pizza but like, BURGER!"
+      },      
+      {
+        userId: 8,
+        burgerId: 5,
+        title: "You can taste why it's a favorite.",
+        rating: 5,
+        comment: "It's because it's pure and simple, just like Master Splinter."
+      }    
     ]
 
     for (const reviewObject of reviewData) {

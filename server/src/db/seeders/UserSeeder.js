@@ -18,6 +18,22 @@ class UserSeeder {
       {
         email: "email3@gmail.com",
         password: "sdjnfadsfdajksd"
+      },
+      {
+        email: "donnie@ninjaturtles.com",
+        password: "pizza"
+      },
+      {
+        email: "raph@ninjaturtles.com",
+        password: "pizza"
+      },
+      {
+        email: "mikey@ninjaturtles.com",
+        password: "pizza"
+      },
+      {
+        email: "leo@ninjaturtles.com",
+        password: "pizza"
       }
     ]
 

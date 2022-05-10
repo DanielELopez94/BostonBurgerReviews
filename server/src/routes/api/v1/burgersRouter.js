@@ -9,9 +9,10 @@ burgersRouter.get("/:id", async (req, res) => {
 
   try {
     const burger = await Burger.query().findById(id)
-    const serializedBurger = await BurgerSerializer.getSummary(burger)
+    const serializedBurger = await BurgerSerializer.getDetail(burger)
     return res.status(200).json({ burger: serializedBurger })
   } catch (error) {
+    console.log(error)
     return res.status(500).json({ errors: error })
   }
 })
