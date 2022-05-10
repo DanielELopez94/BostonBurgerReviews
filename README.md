@@ -1,6 +1,7 @@
 # Boston Burger Reviews
 <hr>
-_A first stop for the best Boston-based burgers._
+
+*A first stop for the best Boston-based burgers*.
 
 This application will allow to you view and add reviews on Burger restaurants in the Boston area. 
 > **Note**: This is a team project to create a first webapp.
