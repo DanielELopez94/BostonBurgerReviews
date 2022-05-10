@@ -36,18 +36,6 @@ class Burger extends Model {
           from: "burgers.id",
           to: "reviews.burgerId"
         }
-      },
-      users: {
-        relation: Model.ManyToManyRelation,
-        modelClass: User,
-        join: {
-          from: "burgers.id",
-          through: {
-            from: "reviews.burgerId",
-            to: "reviews.userId"
-          },
-          to: "users.id"
-        }
       }
     }
   }

@@ -1,7 +1,6 @@
 import React from 'react'
 
 const ReviewTile = (props) => {
-  console.log(props)
   const { id, title, comment } = props.review
 
   return (
