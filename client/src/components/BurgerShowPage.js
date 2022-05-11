@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react"
-import NewBurgerReviewForm from "./NewBurgerReviewForm"
+import NewBurgerReviewForm from "./NewBurgerReviewForm.js"
+import ReviewTile from "./ReviewTile.js"
 
 const BurgerShowPage = props => {
   const [burger, setBurger] = useState({
     name: "", 
-    vegetarian: null
+    vegetarian: null,
+    reviews: []
   })
+
+  const burgerId = props.match.params.id
+
   const getBurger = async () => {
-      const burgerId = props.match.params.id
     try {
       const response = await fetch(`/api/v1/burgers/${burgerId}`)
       if (!response.ok) {
@@ -25,18 +29,35 @@ const BurgerShowPage = props => {
   useEffect(()=> {
     getBurger()
   }, [])
+  
+  const reviewTiles = burger.reviews.map((review) => {
+    return (
+      <ReviewTile
+        key={review.id}
+        review={review}
+      />
+    )
+  })
 
   return (
-    <div>
-      <h2>{burger.name}</h2>
-      <h2>{burger.vegetarian}</h2>
-      <h2> Reviews:</h2>
-      <div>
-      <NewBurgerReviewForm />
+    <div className="grid-container">
+      <div className="grid-y text-center">
+        <h2 className="cell small-6 align-justify align-middle">
+          {burger.name}
+        </h2>
+        <h2 className="cell small-6">
+          {burger.vegetarian}
+        </h2>
+        <div className="grid-x grid-margin">
+          {reviewTiles}
+        </div>
+        <NewBurgerReviewForm  
+        review={review}
+        rating={rating}
+        />
       </div>
     </div>
   )
-  
 }
 
 export default BurgerShowPage

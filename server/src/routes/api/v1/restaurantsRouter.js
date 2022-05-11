@@ -17,7 +17,7 @@ restaurantsRouter.get("/", async (req, res) => {
 })
 
 restaurantsRouter.get("/:id", async (req, res) => {
-  const id = req.params.id
+  const { id } = req.params
   try {
     const restaurant = await Restaurant.query().findById(id)
     const serializedRestaurant = await RestaurantSerializer.getDetail(restaurant)

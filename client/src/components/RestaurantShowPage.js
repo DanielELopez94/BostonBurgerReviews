@@ -39,7 +39,7 @@ const RestaurantShowPage = (props) => {
 
   return (
     <div className="grid-container">
-      <div className="grid-y text-center ">
+      <div className="grid-y text-center">
         <h1 className="cell small-6 align-justify align-middle">
           {restaurant.name}
         </h1>
