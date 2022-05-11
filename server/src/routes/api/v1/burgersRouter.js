@@ -17,6 +17,12 @@ burgersRouter.get("/:id", async (req, res) => {
   }
 })
 
+// we need to ensure that the endpoint for adding a burger to a restuarant is in the restaurant burgers router
+// that means the endpoint below will likely be deleted
+// I also dont see a new burger form React component...but the endpoint exists? 
+// finally, add a burgerReviewsRouter where we can make a POST request to when adding a new review
+
+// this endpoint shouldnt work, and also makes no mention of the restaurant we are adding the burger
 burgersRouter.post("/restaurants/id/burgers", async (req,res) => { 
   const { body } = req 
   const { title, rating } = formInput

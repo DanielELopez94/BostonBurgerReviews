@@ -51,10 +51,7 @@ const BurgerShowPage = props => {
         <div className="grid-x grid-margin">
           {reviewTiles}
         </div>
-        <NewBurgerReviewForm  
-        review={review}
-        rating={rating}
-        />
+        <NewBurgerReviewForm  />
       </div>
     </div>
   )
