@@ -1,4 +1,5 @@
 import { Burger } from "../../models/index.js"
+import { Restaurant } from "../../models/index.js"
 
 class BurgerSeeder {
   static async seed() {
