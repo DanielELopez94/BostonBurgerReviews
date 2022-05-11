@@ -1,9 +1,10 @@
 import express from "express";
 import objection from "objection";
+import Burger from "../../../models/Burger.js";
 const { ValidationError } = objection;
 import cleanUserInput from "../../../services/cleanUserInput.js";
 
-const restaurantBurgersRouter = new express.Router({ mergeParams: true });
+const restaurantBurgersRouter = new express.Router()
 
 restaurantBurgersRouter.post("/", async (req, res) => {
   const { body } = req;
@@ -11,7 +12,7 @@ restaurantBurgersRouter.post("/", async (req, res) => {
   const { name, description } = formInput;
   const { burgerId } = req.params;
   try {
-    const newReview = await Event.query().insertAndFetch({ name, description, burgerId });
+    const newReview = await review.query().insertAndFetch({ name, description, review });
     return res.status(201).json({ review: newReview });
   } catch (error) {
     if (error instanceof ValidationError) {

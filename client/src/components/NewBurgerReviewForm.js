@@ -2,52 +2,77 @@ import React, { useState } from "react"
 
 const NewBurgerReviewForm = ({ postBurger }) => {
   const [newBurgerReview, setNewBurgerReview] = useState({
-    name: "",
-    vegetarian: null
+    title: "",
+    rating: null,
+    comment: "",
   })
 
-  const handleInputChange = review => {
+  const handleInputChange = (event) => {
     setNewBurger({
       ...newBurgerReview,
-      [review.currentTarget.name]: review.currentTarget.value
+      [event.currentTarget.name]: event.currentTarget.value
     })
   }
 
-  const handleSubmit = (burger) => {
-    burger.preventDefault()
+  const handleSubmit = (event) => {
+    event.preventDefault()
     postBurger(newBurgerReview)
     clearForm()
   }
 
   const clearForm = () => {
     setNewBurgerReview({
-      name: "",
-      vegetarian: null
+      title: "",
+      rating: null,
+      comment: "",
     })
   }
 
   return (
-    <div>
+    <div className="callout">
       <h1>Add a Burger Review</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Review: 
+          Title: 
           <input
-          type="Text"
-          review="review"
+          type="text"
+          name="title"
           onChange={handleInputChange}
-          value={newBurgerReview.name}
+          value={newBurgerReview.title}
           />
         </label>
-        <div>
+        <label>
+          Rating:
+          <select 
+            value={newBurgerReview.rating} 
+            onChange={handleInputChange}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>  
+          </select>
+        </label>
+        <label>
+          Comment:
+          <input 
+            type="text" 
+            name="comment" 
+            onChange={handleInputChange} 
+            value={newBurgerReview.comment}
+          />
+        </label>
+        <div className="button-group">
           <input
-          type="submit"
-          value="submit" 
+            className="button"
+            type="submit"
+            value="submit" 
           />
         </div>
       </form>
     </div>
   )
 }
-export default NewBurgerReviewForm
 
+export default NewBurgerReviewForm
