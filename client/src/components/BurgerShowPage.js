@@ -20,7 +20,7 @@ const BurgerShowPage = props => {
       }
       const body = await response.json() 
       setBurger(body.burger)
-    }catch (error) {
+    } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
     }
   }
@@ -29,11 +29,39 @@ const BurgerShowPage = props => {
     getBurger()
   }, [])
   
+  const deleteReview = async (reviewId) => {
+    try {
+      const response = await fetch(`/api/v1/reviews/${reviewId}`, {
+        method: "DELETE",
+        headers: new Headers({
+          "Content-Type": "application/json"
+        })
+      })
+      if (!response.ok) {
+        const error = new Error(`Error in fetch: ${response.status} (${response.statusText})`)
+        throw error
+      }
+      const body = await response.json()
+      const updatedReviews = burger.reviews.filter(review => {
+        if (review.id !== id) {
+          return review
+        }
+      })
+      setBurger({
+        ...burger,
+        reviews: updatedReviews
+      })
+    } catch (error) {
+      console.error(`Error in deletion: ${error.message}`)
+    }
+  }
+  
   const reviewTiles = burger.reviews.map((review) => {
     return (
       <ReviewTile
         key={review.id}
         review={review}
+        deleteReview={deleteReview}
       />
     )
   })
