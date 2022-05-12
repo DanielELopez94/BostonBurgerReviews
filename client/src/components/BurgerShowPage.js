@@ -71,13 +71,13 @@ const BurgerShowPage = props => {
   return (
     <div className="grid-container">
       <div className="grid-y text-center">
-        <h2 className="cell small-6 align-justify align-middle">
+        <h2 className="cell small-4 align-justify align-middle">
           {burger.name}
         </h2>
         <h2 className="cell small-6">
           {burger.vegetarian}
         </h2>
-        <div className="grid-x grid-margin">
+        <div className="grid-x grid-margin-x">
           {reviewTiles}
         </div>
       </div>

@@ -10,7 +10,7 @@ const BurgerTile = (props) => {
   }
 
   return (
-    <div className="callout primary small-6 grid-x grid-x-margin">
+    <div className="tile callout cell small-4">
       <h4>
         <Link to={`/burgers/${id}`}>
           {name}

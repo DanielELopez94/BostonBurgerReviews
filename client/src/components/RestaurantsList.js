@@ -34,8 +34,12 @@ const RestaurantsList = props => {
 
   return (
     <>
-      <h1> Restaurants: </h1>
-      {restaurantListItems}
+      <h1 className="heading"> Restaurants</h1>
+      <div className="grid-container">
+        <div className="grid-x grid-margin-x">
+          {restaurantListItems}
+        </div>
+      </div>
     </>
   )
 }

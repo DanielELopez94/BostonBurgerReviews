@@ -13,7 +13,7 @@ const ReviewTile = (props) => {
     deleteButton = (
       <div className="button-group grid-x grid-margin align-spaced">
         <button 
-          className="button small-4 secondary"
+          className="button small-4 warning"
           type="button"
           onClick={handleDelete}
         >
@@ -24,7 +24,7 @@ const ReviewTile = (props) => {
   }
 
   return (
-    <div className="callout primary small-6 grid-y grid-x-margin">
+    <div className="review-tile cell callout success small-4">
       <h4>
         {title}
       </h4>
