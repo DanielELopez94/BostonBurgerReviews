@@ -4,7 +4,7 @@ const ReviewTile = (props) => {
   const { id, title, comment } = props.review
 
   return (
-    <div className="callout primary small-6 grid-x grid-x-margin">
+    <div className="review-tile cell callout primary small-4">
       <h4>
         {title}
       </h4>
