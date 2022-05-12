@@ -1,14 +1,15 @@
 import React, { useState } from "react"
 
-const NewBurgerReviewForm = ({ postBurger }) => {
+const NewBurgerReviewForm = (props) => {
+  const { postBurger } = props
   const [newBurgerReview, setNewBurgerReview] = useState({
     title: "",
-    rating: null,
-    comment: "",
+    rating: 1,
+    comment: ""
   })
 
   const handleInputChange = (event) => {
-    setNewBurger({
+    setNewBurgerReview({
       ...newBurgerReview,
       [event.currentTarget.name]: event.currentTarget.value
     })
@@ -23,8 +24,8 @@ const NewBurgerReviewForm = ({ postBurger }) => {
   const clearForm = () => {
     setNewBurgerReview({
       title: "",
-      rating: null,
-      comment: "",
+      rating: 1,
+      comment: ""
     })
   }
 
@@ -44,6 +45,7 @@ const NewBurgerReviewForm = ({ postBurger }) => {
         <label>
           Rating:
           <select 
+            name="rating"
             value={newBurgerReview.rating} 
             onChange={handleInputChange}
           >

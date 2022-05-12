@@ -1,8 +1,11 @@
 import express from "express"
 import { Burger } from "../../../models/index.js"
 import BurgerSerializer from "../../../serializers/BurgerSerializer.js"
+import burgerReviewsRouter from "./burgerReviewsRouter.js"
 
 const burgersRouter = new express.Router()
+
+burgersRouter.use("/:burgerId/reviews", burgerReviewsRouter)
 
 burgersRouter.get("/:id", async (req, res) => {
   const { id } = req.params
@@ -14,26 +17,6 @@ burgersRouter.get("/:id", async (req, res) => {
   } catch (error) {
     console.log(error)
     return res.status(500).json({ errors: error })
-  }
-})
-
-// we need to ensure that the endpoint for adding a burger to a restuarant is in the restaurant burgers router
-// that means the endpoint below will likely be deleted
-// I also dont see a new burger form React component...but the endpoint exists? 
-// finally, add a burgerReviewsRouter where we can make a POST request to when adding a new review
-
-// this endpoint shouldnt work, and also makes no mention of the restaurant we are adding the burger
-burgersRouter.post("/restaurants/id/burgers", async (req,res) => { 
-  const { body } = req 
-  const { title, rating } = formInput
-  const { userId } = req.params
-
-  try {
-    const burger = await Burger.query().insertAndFetch({title, rating, userId})
-    return res.status(201).json({burger: burger}) 
-  } catch (error) {
-    console.log(error)
-    return res.status(500).json({error: error})
   }
 })
 
