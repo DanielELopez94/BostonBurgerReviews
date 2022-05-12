@@ -13,19 +13,24 @@
   tab-size: 4;
 }
 
+body {
+  color: #1a1416;
+}
 
-.indexPageList {
-  display:flex;
-  justify-content: center;
-  color:green;
-  
+.heading {
+  text-align: center;
+}
 
-  
-  }
-  
+.tile {
+  background-color: #453e3f;
+  border-radius: 10px;
+  text-align: center;
+  color: #e6e6e6;
+  box-shadow: 5px 5px 5px #453e3f;
+}
 
-  #restaurantName{
-   border :5px outset green;
-
-
-  }
+.review-tile {
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 5px 5px 5px #6f645780;
+}

@@ -25,7 +25,7 @@ const BurgerShowPage = props => {
       }
       const body = await response.json() 
       setBurger(body.burger)
-    }catch (error) {
+    } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
     }
   }
@@ -64,11 +64,40 @@ const BurgerShowPage = props => {
     getBurger()
   }, [])
   
+  const deleteReview = async (reviewId) => {
+    try {
+      const response = await fetch(`/api/v1/reviews/${reviewId}`, {
+        method: "DELETE",
+        headers: new Headers({
+          "Content-Type": "application/json"
+        })
+      })
+      if (!response.ok) {
+        const error = new Error(`Error in fetch: ${response.status} (${response.statusText})`)
+        throw error
+      }
+      const body = await response.json()
+      const updatedReviews = burger.reviews.filter(review => {
+        if (review.id !== reviewId) {
+          return review
+        }
+      })
+      setBurger({
+        ...burger,
+        reviews: updatedReviews
+      })
+    } catch (error) {
+      console.error(`Error in deletion: ${error.message}`)
+    }
+  }
+  
   const reviewTiles = burger.reviews.map((review) => {
     return (
       <ReviewTile
         key={review.id}
         review={review}
+        deleteReview={deleteReview}
+        currentUser={currentUser}
       />
     )
   })
@@ -76,13 +105,13 @@ const BurgerShowPage = props => {
   return (
     <div className="grid-container">
       <div className="grid-y text-center">
-        <h2 className="cell small-6 align-justify align-middle">
+        <h2 className="cell small-4 align-justify align-middle">
           {burger.name}
         </h2>
         <h2 className="cell small-6">
           {burger.vegetarian}
         </h2>
-        <div className="grid-x grid-margin">
+        <div className="grid-x grid-margin-x">
           {reviewTiles}
         </div>
         <ErrorList errors={errors}/>
