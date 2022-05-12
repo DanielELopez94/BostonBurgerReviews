@@ -1,12 +1,13 @@
 import { Review } from "../../models/index.js"
 import { Burger } from "../../models/index.js"
+import { User } from "../../models/index.js"
 
 class ReviewSeeder {
   static async seed() {
     const donnie = await User.query().findOne({ email: "donnie@ninjaturtles.com" })
-    const leo = await User.query().findOne({ email: "leo@ninjaturles.com" })
-    const mikey = await User.query().findOne({ email: "mikey@ninjaturles.com" })
-    const raph = await User.query().findOne({ email: "raph@ninjaturles.com" })
+    const leo = await User.query().findOne({ email: "leo@ninjaturtles.com" })
+    const mikey = await User.query().findOne({ email: "mikey@ninjaturtles.com" })
+    const raph = await User.query().findOne({ email: "raph@ninjaturtles.com" })
     const email = await User.query().findOne({ email: "email@gmail.com" })
     const email1 = await User.query().findOne({ email: "email1@gmail.com" })
     const email2 = await User.query().findOne({ email: "email2@gmail.com" })
