@@ -12,7 +12,7 @@ class Burger extends Model {
       properties: {
         name: { type: "string" },
         vegetarian: { type: "boolean" },
-        restaurantId: { [type: "integer", "string"] }
+        restaurantId: { type: ["integer", "string"] }
       }
     }
   }
