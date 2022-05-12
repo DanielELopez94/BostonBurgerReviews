@@ -43,7 +43,7 @@ const BurgerShowPage = props => {
       }
       const body = await response.json()
       const updatedReviews = burger.reviews.filter(review => {
-        if (review.id !== id) {
+        if (review.id !== reviewId) {
           return review
         }
       })

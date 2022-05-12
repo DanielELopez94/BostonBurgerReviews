@@ -3,7 +3,6 @@ import React from 'react'
 const ReviewTile = (props) => {
   const { id, title, comment } = props.review
   const { deleteReview } = props
-
   const handleDelete = (event) => {
     event.preventDefault()
     deleteReview(id)
