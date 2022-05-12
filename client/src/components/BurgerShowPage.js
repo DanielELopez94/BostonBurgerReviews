@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import ReviewTile from "./ReviewTile.js"
+import { withRouter } from "react-router-dom"
 
 const BurgerShowPage = props => {
   const [burger, setBurger] = useState({
@@ -7,7 +8,7 @@ const BurgerShowPage = props => {
     vegetarian: null,
     reviews: []
   })
-
+  const { currentUser } = props
   const burgerId = props.match.params.id
 
   const getBurger = async () => {
@@ -62,6 +63,7 @@ const BurgerShowPage = props => {
         key={review.id}
         review={review}
         deleteReview={deleteReview}
+        currentUser={currentUser}
       />
     )
   })
@@ -83,4 +85,4 @@ const BurgerShowPage = props => {
   )
 }
 
-export default BurgerShowPage
+export default withRouter(BurgerShowPage)
