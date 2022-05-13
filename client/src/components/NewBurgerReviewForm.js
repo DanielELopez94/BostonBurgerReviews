@@ -36,28 +36,26 @@ const NewBurgerReviewForm = (props) => {
         <label>
           Title: 
           <input
-          type="text"
-          name="title"
-          onChange={handleInputChange}
-          value={newBurgerReview.title}
+            type="text"
+            name="title"
+            onChange={handleInputChange}
+            value={newBurgerReview.title}
           />
         </label>
         <label >
           Rating:
-          <div className="">
-            <select 
-              name="rating"
-              value={newBurgerReview.rating} 
-              onChange={handleInputChange}
-              className="text-center"
-              >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>  
-            </select>
-            </div>
+          <select 
+            name="rating"
+            value={newBurgerReview.rating} 
+            onChange={handleInputChange}
+            className="text-center"
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>  
+          </select>
         </label>
         <label>
           Comment:

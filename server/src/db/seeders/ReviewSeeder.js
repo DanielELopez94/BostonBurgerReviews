@@ -9,7 +9,6 @@ class ReviewSeeder {
     const mikey = await User.query().findOne({ email: "mikey@ninjaturtles.com" })
     const raph = await User.query().findOne({ email: "raph@ninjaturtles.com" })
     const email = await User.query().findOne({ email: "email@gmail.com" })
-    // console.log(raph)
     const email1 = await User.query().findOne({ email: "email1@gmail.com" })
     const email2 = await User.query().findOne({ email: "email2@gmail.com" })
     const email3 = await User.query().findOne({ email: "email3@gmail.com" })
@@ -71,14 +70,14 @@ class ReviewSeeder {
         title: "Elevated Fast Food",
         rating: 5,
         comment: "A great burger for human kind"
-      }
-      // {
-      //   userId: raph.id,
-      //   burgerId: mother.id,
-      //   title: "Breakfast or Burger",
-      //   rating: 3,
-      //   comment: "I thought this was going to be a chicken burger, but mostly eggs and bacon."
-      // },
+      },
+      {
+        userId: raph.id,
+        burgerId: mother.id,
+        title: "Breakfast or Burger",
+        rating: 3,
+        comment: "I thought this was going to be a chicken burger, but mostly eggs and bacon."
+      },
     ]
 
     for (const reviewObject of reviewData) {

@@ -5,7 +5,7 @@ import ErrorList from "./ErrorList.js"
 import translateServerErrors from "../services/translateServerErrors.js"
 import { withRouter } from "react-router-dom"
 
-const BurgerShowPage = props => {
+const BurgerShowPage = (props) => {
   const [burger, setBurger] = useState({
     name: "", 
     vegetarian: null,
@@ -39,26 +39,26 @@ const BurgerShowPage = props => {
         }),
         body: JSON.stringify(newReviewData)
       })
-    if (!response.ok) {
-      if (response.status === 422) {
-        const body = await response.json()
-        const newErrors = translateServerErrors(body.errors)
-        return setErrors(newErrors)
+      if (!response.ok) {
+        if (response.status === 422) {
+          const body = await response.json()
+          const newErrors = translateServerErrors(body.errors)
+          return setErrors(newErrors)
+        } else {
+          const errorMessage = `${response.status} (${response.statusText})`
+          const error = new Error(errorMessage)
+          throw error
+        }
       } else {
-        const errorMessage = `${response.status} (${response.statusText})`
-        const error = new Error(errorMessage)
-        throw (error)
+        const body = await response.json()
+        const updatedReviews = burger.reviews.concat(body.review)
+        setErrors([])
+        setBurger({ ...burger, reviews: updatedReviews })
       }
-    } else {
-      const body = await response.json()
-      const updatedReviews = burger.reviews.concat(body.review)
-      setErrors([])
-      setBurger({ ...burger, reviews: updatedReviews })
+    } catch (error) {
+      console.error(`Error in fetch:${error.message}`)
     }
-  }catch (error) {
-    console.error(`Error in fetch:${error.message}`)
   }
-}
 
   useEffect(()=> {
     getBurger()

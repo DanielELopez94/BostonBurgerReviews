@@ -16,8 +16,6 @@ class Seeder {
     console.log("seeding burgers...")
     await BurgerSeeder.seed()
 
- 
-
     console.log("seeding reviews...")
     await ReviewSeeder.seed()
 
