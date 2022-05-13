@@ -31,7 +31,7 @@ const NewBurgerReviewForm = (props) => {
 
   return (
     <div className="callout review-tile primary">
-      <h1>Add a Burger Review</h1>
+      <h2>Add a Burger Review</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Title: 
