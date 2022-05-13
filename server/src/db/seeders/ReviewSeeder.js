@@ -51,13 +51,6 @@ class ReviewSeeder {
         comment: "What's juicy, black, and blue all over? This fantastic creation. Eat now."
       },
       {
-        userId: raph.id,
-        burgerId: mother.id,
-        title: "Breakfast or Burger",
-        rating: 3,
-        comment: "I thought this was going to be a chicken burger, but mostly eggs and bacon."
-      },
-      {
         userId: mikey.id,
         burgerId: hawaii.id,
         title: "Cowabunga! Hang 10 Dudes!",
@@ -77,7 +70,14 @@ class ReviewSeeder {
         title: "Elevated Fast Food",
         rating: 5,
         comment: "A great burger for human kind"
-      }
+      },
+      {
+        userId: raph.id,
+        burgerId: mother.id,
+        title: "Breakfast or Burger",
+        rating: 3,
+        comment: "I thought this was going to be a chicken burger, but mostly eggs and bacon."
+      },
     ]
 
     for (const reviewObject of reviewData) {

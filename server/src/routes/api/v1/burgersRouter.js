@@ -1,8 +1,11 @@
 import express from "express"
 import { Burger } from "../../../models/index.js"
 import BurgerSerializer from "../../../serializers/BurgerSerializer.js"
+import burgerReviewsRouter from "./burgerReviewsRouter.js"
 
 const burgersRouter = new express.Router()
+
+burgersRouter.use("/:burgerId/reviews", burgerReviewsRouter)
 
 burgersRouter.get("/:id", async (req, res) => {
   const { id } = req.params

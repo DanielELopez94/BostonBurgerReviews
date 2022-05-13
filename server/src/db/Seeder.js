@@ -7,14 +7,14 @@ import { connection } from "../boot.js"
 
 class Seeder {
   static async seed() {
+    console.log("seeding users...")
+    await UserSeeder.seed()
+    
     console.log("seeding restaurants...")
     await RestaurantSeeder.seed()
 
     console.log("seeding burgers...")
     await BurgerSeeder.seed()
-
-    console.log("seeding users...")
-    await UserSeeder.seed()
 
     console.log("seeding reviews...")
     await ReviewSeeder.seed()
