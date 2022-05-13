@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import ReviewTile from "./ReviewTile.js"
 import { withRouter } from "react-router-dom"
+import NewBurgerReviewForm from "./NewBurgerReviewForm.js"
 
 const BurgerShowPage = props => {
   const [burger, setBurger] = useState({
@@ -79,6 +80,9 @@ const BurgerShowPage = props => {
         </h2>
         <div className="grid-x grid-margin-x">
           {reviewTiles}
+        </div>
+        <div>
+          <NewBurgerReviewForm postBurger={postBurger}/>
         </div>
       </div>
     </div>
