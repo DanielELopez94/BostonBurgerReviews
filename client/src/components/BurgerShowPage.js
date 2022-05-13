@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
-import ReviewTile from "./ReviewTile.js"
-import { withRouter } from "react-router-dom"
 import NewBurgerReviewForm from "./NewBurgerReviewForm.js"
+import ReviewTile from "./ReviewTile.js"
+import ErrorList from "./ErrorList.js"
+import translateServerErrors from "../services/translateServerErrors.js"
+import { withRouter } from "react-router-dom"
 
 const BurgerShowPage = props => {
   const [burger, setBurger] = useState({
@@ -9,7 +11,8 @@ const BurgerShowPage = props => {
     vegetarian: null,
     reviews: []
   })
-  const { currentUser } = props
+  const [errors, setErrors] = useState([])
+  const currentUser = props.currentUser
   const burgerId = props.match.params.id
 
   const getBurger = async () => {
@@ -26,6 +29,36 @@ const BurgerShowPage = props => {
       console.error(`Error in fetch: ${error.message}`)
     }
   }
+  
+  const postBurger = async (newReviewData) => {
+    try {
+      const response = await fetch(`/api/v1/burgers/${burgerId}/reviews`, {
+        method: 'POST',
+        headers: new Headers({ 
+          "Content-Type": "application/json"
+        }),
+        body: JSON.stringify(newReviewData)
+      })
+    if (!response.ok) {
+      if (response.status === 422) {
+        const body = await response.json()
+        const newErrors = translateServerErrors(body.errors)
+        return setErrors(newErrors)
+      } else {
+        const errorMessage = `${response.status} (${response.statusText})`
+        const error = new Error(errorMessage)
+        throw (error)
+      }
+    } else {
+      const body = await response.json()
+      const updatedReviews = burger.reviews.concat(body.review)
+      setErrors([])
+      setBurger({ ...burger, reviews: updatedReviews })
+    }
+  }catch (error) {
+    console.error(`Error in fetch:${error.message}`)
+  }
+}
 
   useEffect(()=> {
     getBurger()
@@ -81,9 +114,10 @@ const BurgerShowPage = props => {
         <div className="grid-x grid-margin-x">
           {reviewTiles}
         </div>
-        <div>
-          <NewBurgerReviewForm postBurger={postBurger}/>
-        </div>
+        <ErrorList errors={errors}/>
+        <NewBurgerReviewForm 
+          currentUser={currentUser}
+          postBurger={postBurger}/>
       </div>
     </div>
   )
