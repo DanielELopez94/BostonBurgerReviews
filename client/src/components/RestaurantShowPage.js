@@ -39,16 +39,19 @@ const RestaurantShowPage = (props) => {
 
   return (
     <div className="grid-container">
-      <div className="grid-y text-center ">
-        <h1 className="cell small-6 align-justify align-middle">
+      <div className="grid-y text-center">
+        <h1 className="cell small-4 align-justify align-middle">
           {restaurant.name}
         </h1>
         <h2 className="cell small-6">
           {restaurant.location}
         </h2>
       </div>
-      <div className="grid-x grid-margin">
-        {burgerTiles}
+      <div>
+        <div className="grid-x grid-margin-x">
+          {burgerTiles}
+        </div>
+
       </div>
     </div>
   )

@@ -1,27 +1,48 @@
 import { Burger } from "../../models/index.js"
+import { Restaurant } from "../../models/index.js"
 
 class BurgerSeeder {
   static async seed() {
+    const boston = await Restaurant.query().findOne({ name: "Boston Burger Company" })
+    const shake = await Restaurant.query().findOne({ name: "Shake Shack" })
+    const daddy = await Restaurant.query().findOne({ name: "Daddy Jones" })
+    const oSullivan = await Restaurant.query().findOne({ name: "R.F. O'Sullivan's" })
+
     const burgerData = [
       {
-        restaurantId: 1,
+        restaurantId: boston.id,
         name: "WTF Burger",
-        vegetarian: false,
+        vegetarian: false
       },
       {
-        restaurantId: 2,
+        restaurantId: shake.id,
         name: "Shack Stack",
-        vegetarian: false,
+        vegetarian: false
       },
       {
-        restaurantId: 3,
+        restaurantId: daddy.id,
         name: "Chris Burger",
-        vegetarian: false,
+        vegetarian: false
       },
       {
-        restaurantId: 4,
+        restaurantId: oSullivan.id,
         name: "Black & Blue Burger",
-        vegetarian: false,
+        vegetarian: false
+      },
+      {
+        restaurantId: oSullivan.id,
+        name: "Blackjack",
+        vegetarian: false
+      },
+      {
+        restaurantId: oSullivan.id,
+        name: "The Mother Clucker",
+        vegetarian: false
+      },
+      {
+        restaurantId: oSullivan.id,
+        name: "Hawaii 8.0 Burger",
+        vegetarian: false
       }
     ]
 

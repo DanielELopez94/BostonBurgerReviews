@@ -1,7 +1,8 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 const BurgerTile = (props) => {
-  const { name, vegetarian } = props.burger
+  const { id, name, vegetarian } = props.burger
   let veggieMessage
 
   if (vegetarian) {
@@ -9,8 +10,12 @@ const BurgerTile = (props) => {
   }
 
   return (
-    <div className="callout primary small-4 grid-x grid-x-margin">
-      <h4>{name}</h4>
+    <div className="tile callout cell small-4">
+      <h4>
+        <Link to={`/burgers/${id}`}>
+          {name}
+        </Link>
+      </h4>
       {veggieMessage}
     </div>
   )
