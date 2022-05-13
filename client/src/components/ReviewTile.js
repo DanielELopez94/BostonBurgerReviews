@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react"
 
 const ReviewTile = (props) => {
-  const { id, title, comment,  userId } = props.review
+  const { id, title, comment,  userId, rating } = props.review
   const { deleteReview, currentUser } = props
   const handleDelete = (event) => {
     event.preventDefault()
@@ -28,6 +28,9 @@ const ReviewTile = (props) => {
       <h4>
         {title}
       </h4>
+      <h5>
+        Rating: {rating} / 5
+      </h5>
       <p>
         {comment}
       </p>
